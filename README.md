@@ -1,2 +1,9 @@
+We will publish all the codes after receiving the paper.
 # MSCDWA
-A Fusion Framework Based on Modality-Specific Correlation Features and Dynamic Weight Adjustment for Multimodal Sentiment Analysis
+Multimodal Sentiment Analysis
+# [MSCDWA: ]
+# Introduction
+
+
+
+
