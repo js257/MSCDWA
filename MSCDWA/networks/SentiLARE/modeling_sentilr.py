@@ -324,11 +324,8 @@ class BertEncoder(nn.Module):
         self.output_attentions = config.output_attentions
         self.output_hidden_states = config.output_hidden_states
         self.layer = nn.ModuleList([BertLayer(config) for _ in range(config.num_hidden_layers)])
-        # self.CE = CE()
-        self.MSCDWA = MSCDWA()
 
-        # self.bn_layer = nn.BatchNorm1d(num_features=50)
-        # self.sigmd = nn.Sigmoid()
+        self.MSCDWA = MSCDWA()
 
     def forward(self, hidden_states, visual=None, acoustic=None, visual_ids=None, acoustic_ids=None,
                 attention_mask=None, head_mask=None):
@@ -342,7 +339,7 @@ class BertEncoder(nn.Module):
             layer_outputs = layer_module(hidden_states, attention_mask, head_mask[i])
             hidden_states = layer_outputs[0]
         ################################################
-        hidden_states, T, V,  relate_model_v_a, relate_model_t_a = self.MSCDWA(hidden_states, visual=visual, acoustic=acoustic)
+        hidden_states, T, V, relate_model_v_a, relate_model_t_a = self.MSCDWA(hidden_states, visual=visual, acoustic=acoustic)
 
         outputs = (hidden_states, T, V,relate_model_v_a, relate_model_t_a)  # torch.Size([64, 50, 768])
 

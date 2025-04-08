@@ -36,7 +36,7 @@ def parser_args():
     parser.add_argument("--n_epochs", type=int, default=50)
     parser.add_argument("--beta_shift", type=float, default=1.0)
     parser.add_argument("--dropout_prob", type=float, default=0.5) #0.5
-    parser.add_argument('--patience', type=int, default=10)
+    parser.add_argument('--patience', type=int, default=12)
     parser.add_argument(
         "--model",
         type=str,
@@ -84,7 +84,7 @@ def prep_for_training(args, num_train_optimization_steps: int):
             "weight_decay": 0.0,
         },
     ]
-    optimizer = AdamW(optimizer_grouped_parameters, lr=args.learning_rate, eps=args.adam_epsilon,betas=(0.555,0.999))
+    optimizer = AdamW(optimizer_grouped_parameters, lr=args.learning_rate, eps=args.adam_epsilon)
     scheduler = WarmupLinearSchedule(
         optimizer,
         warmup_steps=args.warmup_proportion * num_train_optimization_steps,
@@ -126,7 +126,7 @@ def train_epoch(args, model: nn.Module, train_dataloader: DataLoader, optimizer,
         # print(loss_diss)
         loss_mse = loss_fct(logits.view(-1), label_ids.view(-1))
 
-        loss = loss_mse + 0.2*loss_diss
+        loss = loss_mse + 0.05*loss_diss
         if args.gradient_accumulation_step > 1:
             loss = loss / args.gradient_accumulation_step
         loss.backward()
