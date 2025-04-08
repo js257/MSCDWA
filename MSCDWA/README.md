@@ -1,4 +1,5 @@
-# Note: Results may vary across different runtime environments. If any discrepancies occur, please consider adjusting the weight of the diss loss.
+# Note: 
+Results may vary across different runtime environments. If any discrepancies occur, please consider adjusting the weight of the diss loss.
 # Prepare
 ## Dataset
 Download the MOSI pkl file (https://drive.google.com/drive/folders/1_u1Vt0_4g0RLoQbdslBwAdMslEdW1avI?usp=sharing). Put it under the "./dataset" directory.
