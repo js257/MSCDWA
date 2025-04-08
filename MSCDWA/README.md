@@ -12,5 +12,5 @@ Download the SentiLARE language model files (https://drive.google.com/file/d/1on
 python train.py
 '''
 
-Note: the scale of MOSI dataset is small, so the training process is not stable. To get results close to those in CENet paper, you can set the seed in args to 6758. The experimental results of this paper are obtained on the Windows system.
+Note: the scale of MOSI dataset is small, so the training process is not stable. To get results close to those in our paper, you can set the seed in args to 6758. The experimental results of this paper are obtained on the Linux system.
 
