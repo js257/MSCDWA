@@ -6,7 +6,7 @@ Download the MOSI pkl file (https://drive.google.com/drive/folders/1_u1Vt0_4g0RL
 
 ## Pre-trained language model
 Download the SentiLARE language model files (https://drive.google.com/file/d/1onz0ds0CchBRFcSc_AkTLH_AZX_iNTjO/view?usp=share_link), and then put them into the "./pretrained-model/sentilare_model" directory.
-
+The setting "hidden_dropout_prob" in the config.json of the SentiLARE language model is set to 0.
 # Run
 '''
 python train.py
